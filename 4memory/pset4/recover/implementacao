@@ -1,0 +1,30 @@
+Implementação Recover
+
+./recover card.raw
+
+1) first three bytes of JPEGs are 0xff 0xd8 0xff and 0xe0 até 0xef
+(the fourth byte’s first four bits are 1110);
+_________________________________________________________________________________
+
+2) cameras often initialize cards with a FAT file system whose 
+“block size” is 512 bytes (B). A photo that’s 1 MB (i.e., 1,048,576 B) 
+thus takes up 1048576 ÷ 512 = 2048 “blocks”
+a photo that’s, say, one byte smaller (i.e., 1,048,575 B)! The wasted
+space on disk is called “slack space.”
+_________________________________________________________________________________
+
+3) Each time you find a signature, you can open a new file for writing and 
+start filling that file with bytes from my memory card, closing that file
+only once you encounter another signature.
+_________________________________________________________________________________
+
+((___Thanks to FAT, you can trust that JPEGs’ signatures will be “block-aligned.”
+That is, you need only look for those signatures in a block’s first four bytes.___))
+
+i.e_(But the last byte of a JPEG might not fall at the very end of a block)
+
+_________________________________________________________________________________
+4) one command-line argument only with error message for correct use
+_________________________________________________________________________________
+
+5)implement conditions for image reading problems
