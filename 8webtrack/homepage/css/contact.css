@@ -1,0 +1,232 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap');
+
+body {
+    box-sizing: content-box;
+}
+#main {    
+    background: conic-gradient(from 93.61deg at -1.81% 0%, #3D425E -51.33deg,
+    #000000 277.95deg, #56608A 287.08deg, #3D425E 308.67deg,
+    #000000 637.95deg), conic-gradient(from 46.35deg at 97.36% 97.81%,
+    #3D425E -136.82deg, #3D445E 202.98deg, #56608A 213.14deg,
+    #3D425E 223.18deg, #3D445E 562.98deg);
+}
+main {
+    grid-template-rows: 7vh 70vh 23vh;
+
+}
+/*______________________________ INÍCIO DO FORMULÁRIO  ________________________*/
+
+.form-div {
+    display: block;
+    position: absolute;
+    top: 16.09375%;
+    left: 16.666%;
+    width: 72%;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    width: 100%;
+    height: 100%;  
+}
+.form-name svg {
+    display: block;
+    box-sizing: border-box;
+}
+legend {
+    display: block;
+    margin-bottom: .7rem;
+}
+ul.form {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: stretch;
+    width: 100%;
+    gap: 1.5vw;
+}
+label {
+    display: block;
+    position: relative;
+    font-size: .7rem;
+    font-family: "Roboto", sans-serif;
+    color: #ffffff;
+    opacity: 80%;
+    font-weight: 500;
+    line-height: 9.38px;
+    letter-spacing: -5%;
+    left: 1%;
+    padding-bottom: .2rem;
+}
+.form-fields {
+    position: relative;
+    display: flex;
+    width: 100%;
+    left: 0;
+    box-sizing: content-box;
+}
+input[type] {
+    position: absolute;
+    display: inline-block;
+    width: calc(100% - 27px);
+    height: 20px;
+    border: none;
+    padding: 0;
+    box-sizing: border-box;
+    
+    background: rgba(111, 166, 200, 0.15);
+    box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 0 5px 5px 0;
+}
+input[value], textarea {
+    font-family: "Roboto", sans-serif;
+    color: #ffffff;
+    font-weight: 300;
+    size: .75rem;
+    line-height: .9rem;
+    letter-spacing: -5%;
+    opacity: 50%;
+    padding-left: 4px;
+    box-sizing: border-box;
+}
+
+input[value] {
+    display: inline;
+    position: absolute;
+    align-items: baseline;
+    box-sizing: content-box;
+    left: 1.715rem;
+}
+::placeholder {
+    display: inline;
+    position: relative;
+    align-items: baseline;
+    box-sizing: border-box;
+}
+
+input[type=location] {
+    position: absolute;
+    width: 42%;
+    justify-self: center;
+    justify-items: center;
+    vertical-align: center;
+}
+textarea {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 90px;
+    margin-top: .5rem;
+    resize: none;
+
+    background: rgba(111, 166, 200, 0.15);
+    border: 0.1px solid rgba(255, 255, 255, 0.2);
+    box-sizing: border-box;
+    box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 7px;
+    padding: 4px 0 4px 4px;
+}
+
+/*_________________________________  FIM DO FORMULÁRIO  ________________________*/
+
+.social {
+    display: block;
+    position: absolute;
+    bottom: 27.1875%;
+    left: 0;
+    width: 100%;
+}
+.button-social-form {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    gap: .65em;
+    align-items: center;
+    justify-content: center;
+}
+footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-copy {
+    position: relative;
+    display: block;
+}
+.copy-information {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.copy-information > a {
+    display: inline;
+    align-self: center;
+}
+.language {
+    display: flex;
+    align-self: center;
+    position: relative;
+}
+.english {
+    display: inline;
+    position: relative;
+    font-weight: 500;
+}
+.portuguese {
+    display: inline;
+    position: relative;
+    opacity: 60%;
+}
+h4 {
+    opacity: 70%;
+    text-align: center;
+    font-size: 12px;
+}
+
+@media screen and (min-width: 721px) {
+    .bottom-social {
+        display: none;
+    }
+    .form {
+        max-width: 750px;
+    }
+    #name, #mail {
+        max-height: 30px;
+        line-height: 3vw;
+        height: 3vw; 
+        width: 100%;
+    }
+    #local {
+        max-height: 30px;
+        line-height: 5vw;
+        height: 3vw
+    }
+    #msg {
+        min-width: calc(100% + 27px) ;
+        height: 20vw;
+        max-height: 350px;
+    }
+    svg, path {
+        display: inline-block;
+        position: relative;
+        max-height: 30px;
+        line-height: 3vw;
+        height: 3vw;
+    }
+    h2 {
+        font-size: 4vh;
+        margin-bottom: 1.5vw;
+    }
+    fieldset {
+        width: auto;
+        left: 50%;
+        max-width: 800px;
+    }
+    .button-social-form {
+        top: 10%;
+    }
+    
+}

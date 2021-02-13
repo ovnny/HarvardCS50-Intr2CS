@@ -1,0 +1,46 @@
+.back {
+    position: fixed;
+    display: inline-block;
+    z-index: 0;
+    background: conic-gradient(from 93.61deg at -1.81% 0%, #3D425E -51.33deg,
+    #000000 277.95deg, #56608A 287.08deg, #3D425E 308.67deg,
+    #000000 637.95deg), conic-gradient(from 46.35deg at 97.36% 97.81%,
+    #3D425E -136.82deg, #3D445E 202.98deg, #56608A 213.14deg,
+    #3D425E 223.18deg, #3D445E 562.98deg);
+}
+.back-index {
+    display: absolute;
+    position: relative;
+    box-sizing: border-box;
+    left: 9%;
+    top: 20%;
+}
+.back-index-navigation li, a {
+    display: flex;
+    flex-direction: column;
+    color: #ffffff;
+    font: italic 500 .75rem Roboto, sans-serif;
+    margin-bottom: .5rem;
+    text-transform: uppercase;
+    list-style: none;
+}
+
+.back-index-social {
+    display: inline-block;
+    position: absolute;
+    top: 44.22%;
+    left: 9%;
+}
+.back-bottom-social-single {
+    padding-bottom: .625rem;
+    list-style: none;
+}
+
+.back-quit-buttom a {
+    display: inline;
+    position: absolute;
+    left: 41.67%;
+    right: 48.33%;
+    top: 87.81%;
+    bottom: 6.56%;
+}

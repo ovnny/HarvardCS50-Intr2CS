@@ -1,0 +1,250 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap');
+
+/* ____________________   ***SMARTPHONE GRID BY MEDIA QUERY***   ______________ */
+@media screen and (max-width: 720px) {    
+    main {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 7vh 83vh 10vh;
+        grid-template-areas:"header"
+                            "main-front"
+                            "footer";
+    }
+    header      {grid-area:header;}
+    #main-front {grid-area:main-front;}
+    footer      {grid-area:footer;}
+
+    /* __________________   ***SMARTPHONE (INCLUDE HTML)***   ________________ */
+
+    #main {
+            position: relative;
+            background: linear-gradient(
+            158.25deg, #3D425E 22.3%,
+            #56608A 50.87%, #3D425E 75.83%);
+            z-index: 5;
+            box-sizing: content-box;
+            @supports (transition: all .3s ease-in);
+    }    
+
+    header {
+        position: relative;
+    }
+
+    .navigation {
+        position: relative;
+        display: flex;
+        justify-content: space-around;
+        gap: 25%;
+        top: 65%;
+        transform: translateY(-25%); 
+    }
+
+    footer {
+        position: relative;
+    }
+
+    .navigation-lights {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        vertical-align: bottom;
+        padding-top: 2.5vh;
+    }
+
+    /* ____________________   ***    BACK FLIP    ***   ____________________ */
+
+    #back {
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: conic-gradient(from 93.61deg at -1.81% 0%, #3D425E -51.33deg,
+        #000000 277.95deg, #56608A 287.08deg, #3D425E 308.67deg,
+        #000000 637.95deg), conic-gradient(from 46.35deg at 97.36% 97.81%,
+        #3D425E -136.82deg, #3D445E 202.98deg, #56608A 213.14deg,
+        #3D425E 223.18deg, #3D445E 562.98deg);
+        z-index: 1;
+    }
+    .back-index {
+        display: block;
+        position: relative;
+        box-sizing: border-box;
+        left: 9%;
+        top: 20%;
+    }
+    .back-index-navigation li, a {
+        display: flex;
+        flex-direction: column;
+        color: #ffffff;
+        font: italic 500 .75rem Roboto, sans-serif;
+        margin-bottom: .5rem;
+        text-transform: uppercase;
+        list-style: none;
+    }
+
+    .back-index-social {
+        display: inline-block;
+        position: absolute;
+        top: 44.22%;
+        left: 9%;
+    }
+    .back-bottom-social-single {
+        padding-bottom: .625rem;
+        list-style: none;
+    }
+
+    .back-quit-buttom a {
+        display: inline;
+        position: absolute;
+        left: 41.67%;
+        right: 48.33%;
+        top: 87.81%;
+        bottom: 6.56%;
+    }
+    /* __________________   ***TRANSITIONS & ANIMATIONS***   ________________ */
+
+    .moveMain1 {
+        -webkit-animation: slide .15s 1 ease-in forwards;
+                animation: slide .15s 1 ease-in forwards;
+    }
+    @-webkit-keyframes slide {from {left: 0%;} to {left: 55%;}  }
+            @keyframes slide {from {left: 0%;} to {left: 55%;}  }
+    
+    .moveMain-reverse {
+        -webkit-animation: slide-reverse .15s 1 ease-in forwards;
+                animation: slide-reverse .15s 1 ease-in forwards;
+    }
+    @-webkit-keyframes slide-reverse {from {left: 55%;} to {left: 0%;}  }
+            @keyframes slide-reverse {from {left: 55%;} to {left: 0%;}  }
+
+    .col_1, .header-721px, .social-721px, .copy-information {
+        display: none;
+    }
+}
+
+/* _______________________   ***   TABLET/PC GRID   ***   ______________________ */
+
+@media screen and (min-width: 721px) {
+
+    main {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 10vh 85vh 45vh 20vh;
+        grid-template-areas:"header header"
+                            "main-front main-front"
+                            "col_1  col_1"
+                            "footer footer";
+    }
+    header  {grid-area:header;}
+    #main-front{grid-area:main-front;}
+    .col_1  {grid-area:col_1;}
+    footer  {grid-area:footer;}
+    
+    /* _______________________   ***   STYLE TABLET/PC   ***   ______________________ */
+    
+    #back, .navigation, .navigation-lights, .home-image, .celphone {
+        display: none;
+    }
+    main {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background: conic-gradient(from 93.61deg at -1.81% 0%, #3D425E -51.33deg,
+        #000000 277.95deg, #56608A 287.08deg, #3D425E 308.67deg,
+        #000000 637.95deg), conic-gradient(from 46.35deg at 97.36% 97.81%,
+        #3D425E -136.82deg, #3D445E 202.98deg, #56608A 213.14deg,
+        #3D425E 223.18deg, #3D445E 562.98deg);
+        z-index: 1;
+    }
+    .header-721px {
+        display: flex;
+        position: relative;
+        justify-content: space-around;
+        vertical-align: middle;
+        align-items: baseline;
+        top: 50%;
+        gap: 15%;
+        padding-right: 20vw;
+        
+    }
+    .back-index-navigation {
+        display: flex;
+        position: relative;
+        justify-content: space-around;
+        gap: 10vw;
+    }
+   .nav-link {
+       text-transform: uppercase;
+       color: #FFF;
+   }
+    .social-721px {
+        display: inline-block;
+        position: fixed;
+        top: 50%;
+        transform: translateY(-15%);
+        right: 4vw;
+        height: 100%;
+    }
+
+    .bottom-social {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .copy-information {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+    .copy-information > a {
+        display: inline;
+        align-self: center;
+    }
+    .language {
+        display: flex;
+        align-self: center;
+        position: relative;
+    }
+    .english {
+        display: inline;
+        position: relative;
+        font-weight: 500;
+    }
+    .portuguese {
+        display: inline;
+        position: relative;
+        opacity: 60%;
+    }
+    h4 {
+        opacity: 70%;
+        text-align: center;
+        font-size: 12px;
+    }
+    
+}
+
+/* _____________________   Global-Attributes   _________________*/
+
+button {
+    position: absolute;
+    display: block;
+    width: 29vw;
+    height: 4vh;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 10px, 10px rgba(0, 0, 0, .4);
+    max-width: 200px;
+    max-height: 80px;
+
+    color: #000000;
+    font-weight: 600;
+    line-height: 80%;
+    background: radial-gradient(153.85% 240.2% at 97.12% 18.18%,
+    #FFFFFF 0%, #C4D41D 13.66%, #C4D41D 15.8%);
+}
+
+h1, h2, h4, p {
+    font-family: "Roboto", sans-serif;
+    color: #FFFFFF;
+}

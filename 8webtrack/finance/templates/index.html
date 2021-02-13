@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}Resume{% endblock %}
+
+{% block main %}
+
+    <table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Symbol</th>
+            <th>Name</th>
+            <th>Assets</th>
+            <th>Price</th>
+            <th>TOTAL</th>
+        </tr>
+    </thead>
+    <tbody>
+
+
+    <tr>
+        {% for info in userInfo %}
+            <td>{{ info[0] }}</td>
+            <td>{{ info[1] }}</td>
+            <td>{{ info[2] }}</td>
+            <td>{{ info[3] }}</td>
+            <td>{{ info[4] }}</td>
+    </tr>
+        {% endfor %}
+    <tr>
+        <td><strong>CASH</strong></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>{{ cash }}</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><strong>{{ sumAssets }}</strong></td>
+    </tr>
+        
+    </tbody>
+    </table>
+{% endblock %}

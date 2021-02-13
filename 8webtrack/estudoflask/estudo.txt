@@ -1,0 +1,195 @@
+Flask - Python Framework
+
+ESTUDO1
+
+    1) DEFINIÇÃO: 
+        Simplificar tarefas de Aplicativos Web como fazer aplicações web dinâmicas
+        Serve pra analisar requisições HTTP (envelopes virtuais), como também
+        qual é o input do usuário e qual a rota requerida.
+            
+        GET /search?q=cats HTTP/1.1
+        ...
+        ***IMPORTANTE***
+        Um aplicativo web é um aplicativo que, quando iniciado, vai estar constante-
+        mente ouvindo solicitações TCP (Transmission Control Protocol) nas portas
+        80 ou 443 feitas por usuários (você incluso).
+        O objetivo é fazer um código que responda a esses usuários.
+
+
+
+    2) FUNCIONAMENTO:
+        Para usar algumas funções presentes na documentação, os frameworks
+        precisam ser organizados de uma certa maneira. Abaixo:
+        
+        2.1) application.py - o software por assim dizer
+
+        2.2) requirements.txt - enumera quais outras bibliotecas serão 
+        usadas
+
+        2.3) static/ - contém arquivos estáticos como Gifs, Css, javascript
+        files, etc
+
+        2.4) templates/ - arquivos HTML
+
+
+
+    3) DESIGN PATTERN (ou paradigma):
+        
+        MVC (Model, View, Controller)
+
+            3.1) Controller - onde vai a maioria do seu código. Ele controla e 
+            gerencia seu aplicativo web (lógico).
+
+            3.2) View - todos os arquivos de iterface de usuário.
+
+            3.3) Como vc trata e armazena seus dados. Bancos de dados, csv,
+            email, etc.
+
+
+
+    4) BOILER PLATE (mínimo necessário):
+
+        << from flask import Flask, render_template
+
+        app = Flask(__name__)
+
+        @app.route("/")
+        def index():
+            return render_template("index.html") >>
+
+        << ESSA É A QUANTIDADE MÍNIMA DE CÓDIGO A SE PROGRAMAR  EM UM APLICATIVO WEB. >>
+
+
+
+    5) Análise do boilerplate:
+
+        from flask import Flask, render_template
+
+            app = Flask(__name__) 
+                >> refere-se ao nome do arquivo atual. É como uma "flag"
+                que diz que esse aplicativo é um aplicativo Flask.
+
+        @app.route("/")
+            >> uma rota é simplesmente uma URL (Uniform Resource Locator) como
+            "/index.html"
+        
+        def index():
+            return render_template("index.html")
+            >> render_template é uma função disponível em Flask que te permite achar
+            arquivos html, e retornar o seu conteúdo. Similar ao <<open>> ou <<read>>
+            do python.
+
+        <<<OBS: VISITAR o arquivo 'app.py'>>>
+
+
+
+    6) FUNÇÕES NATIVAS:
+
+        Você pode passar um argumento para a função render_template onde está localizada
+        a rota que será utilizada e manipular(parse) assim as requests da URL [input 
+        do usuário, por exemplo] com a função <<<request.args.get("nome-da-variável")
+        como também um segundo argumento, caso o primeiro não seja atendido>>>
+        
+        <<<OBS: ver app2.py e index2.html.>>>
+
+
+
+    7) Manipulando inputs e outputs:
+
+        request.args.get - Método GET serve para requisições de páginas e é lembrado
+        pelo buscador. Serve para requisições públicas e irá aparecer na barra de buscas
+        do browser.
+
+        request.form.get - Método POST serve para requisições privadas, como por exemplo,
+        dados bancários, CPFs, etc. Ao indicar o método post, você adiciona uma camada
+        de privacidade aos inputs sensíveis dos usuários.
+
+        OBS: mudar tanto no formulário html quanto na rota designado pelo app.py.
+
+
+
+    8) Templates layout:
+
+        Você pode criar uma espécie de forma para não precisar repetir um modelo de 
+        html que irá se repetir ou que seja padrão de uma aplicação.
+        Pra isso, usa-se um arquivo html chamado layout.html com o padrão a ser repe-
+        tido e a sintaxe do "Jinja(python)" que irá declarar um PLACEHOLDER onde as
+        informações que irão se modificar estarão.
+
+            EX: {% block BODY %} <-- AQUI VOCÊ PRECISA NOMEAR 
+
+                {% endblock %}
+
+        Após definir o seu template modelo, você só precisará "injetar" as modificações
+        usando outras páginas com a sintaxe:
+
+            EX: {% extends "layout.html" %}
+        
+                {% block BODY %} <-- AQUI VOCÊ PRECISA SE REFERIR AO PLACEHOLDER ANTERI-
+                                        - ORMENTE DEFINIDO EM "layout.html"
+
+                    <<<-- SEU HTML AQUI -->>>
+
+                {% endblock %}
+
+
+    9) Reutilizando rotas:
+
+        A mesma rota se utilizará de dois métodos: GET e POST e utilizará modelos de 
+        controle de operações ("if statement", "while statement", etc )para definir 
+        qual método será utilizado evitando assim a implementação de diversar rotas,
+        uma pra cada caso.
+
+        @app.route("/", methods=["GET", "POST"]) <-- sempre como listas [] !!!
+        def index():
+            <<<<    
+            if request.method == "GET":    
+                return render_template("index.html")
+            if request.method == "POST":
+                return render_template("saudacao.html", name=request.form.get("name",
+                                                                            "word"))
+            >>>>
+
+
+ESTUDO2
+
+    1) Check Error
+        Sempre que formulários apresentarem opções de escolha, por exemplo um Menu
+        ou mesmo um tipo de dado específico (inteiro, string, tamanho) devemos represen-]
+        tar essas opções dentro de uma variável global que pode ser uma lista, dicioná-
+        rio, etc, e lidar com o controle desses dados com modelos de controle de operações
+        na rota utilizada. Ex:
+
+        @app.route("/")
+        def index():
+            return render_template("index.html", sports=SPORTS)
+
+        @app.route("/register", methods=["GET", "POST"])
+        def register():
+            if not request.form.get("name") or request.form.get("sport") not in SPORTS:
+                return render_template("failure.html")
+            return render_template("success.html")
+
+
+ESTUDO 4
+
+    1) Para tornar a URL pública na rede, rodar o seguinte comando
+    na CLI:
+
+        flask run --host=0.0.0.0
+
+    2) Instalando virtualEnvironment para gerenciar minhas bibliotecas e 
+    pacotes em cada aplicação. Dessa forma eu posso configurar cada objetivo
+    da forma como eu desejar. Como variáveis de desenvolvimento no os library
+    por exemplo ou setar configurações de disparo de e-mails.
+
+        2.1) Baixei o gerenciador de pacotes em: 
+            sudo apt-get install python-virtualenv
+
+        2.2) Criei um environment no meu diretório "/Estudo4" com:
+            mkdir myproject
+            $ cd myproject
+            $ python3 -m venv MyEnvName
+
+        2.3) Ativei o environment com:
+            . MyEnvName/bin/activate

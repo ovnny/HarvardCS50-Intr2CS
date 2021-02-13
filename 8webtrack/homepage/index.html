@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/grid&globals.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/includehtml.js"></script>
+    <script src="js/flipOut.js" defer></script>
+    <title>Home</title>
+</head>
+
+<body>
+
+    <div id="back" w3-include-html="back.html"></div>
+    <!--<link rel="import" href="back.html">    Firefox Include HTML-->
+
+    <main id="main">
+        <header id="header">
+            <div class="navigation" w3-include-html="header.html"></div>
+            <div class="header-721px" w3-include-html="header-721px.html"></div>
+        </header>
+
+        <div id="main-front">
+
+            <div class="social-721px" w3-include-html="social-721px.html"></div>
+
+            <div class="home-image">
+                <img src="img/common-objects/ovnny-draw.svg">
+            </div>
+            <div class="title-subtitle">
+                <h1 class="title">Be found everywhere</h1>
+                <h2 class="subtitle">Our business solutions have a broader range of most modern techniques
+                    and technologies including:</h2>
+            </div>
+            <div class="paragraphs">
+                <ul>
+                    <li>
+                        <p class="paragraphs-below">Software development to provide smart solutions</p>
+                    </li>
+                    <li>
+                        <p class="paragraphs-below">We focus on your audience and provide the best user experience</p>
+                    </li>
+                    <li>
+                        <p class="paragraphs-below">Research, data analysis and statistics based</p>
+                    </li>
+                </ul>
+            </div>
+
+            <button>know more</button>
+
+            <img class="celphone" src="img/common-objects/Celphone.svg">
+
+        </div>
+
+        <div class="col_1">
+
+        </div>
+
+        <footer id="footer">
+            <div class="navigation-lights" w3-include-html="footer.html"></div>
+            <div class="footer-721px" w3-include-html="footer-721px.html"></div>
+        </footer>
+
+    </main>
+    <script>includeHTML()</script>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+
+</html>

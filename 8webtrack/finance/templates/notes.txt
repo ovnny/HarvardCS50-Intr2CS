@@ -1,0 +1,94 @@
+Finance TODOs:
+
+    . register - permite os usuários a se registrarem para uma nova conta.
+Se o método for "GET" apenas apresentar a página de "registration". Ele será
+parecido com "login.html" mas com um campo de confirmação de e-mail. Confirm 2x.
+
+Se o método for "POST", checar se existem duplicidades com o nome digitado no
+formulário e os dados no db(users table). Caso não haja duplicidade, realizar o
+cadastro do usuário fazendo o hash da sua senha.
+________________________________________________________________________________
+
+    . quote - permitir ao usuário olhar o formulário de requisição de uma deter-
+-minada ação via "GET" e via "POST" fazer uma requisição via API para o site
+terceiro e extrair os dados apresentando-o na página (redirecionar???)
+________________________________________________________________________________
+
+    . buy - "GET" mostra o formulário de compra (nome da ação e quantidade),
+o preço final será mostrado via "POST" fazer uma requisição via API para o site
+terceiro e extrair os dados com os devidos error handlings.
+________________________________________________________________________________
+
+OBS: Posso criar uma ou mais tables no db para ajudar a lidar com as requisições dos
+usuários. Exemplo: ação compra, venda, data, hora.
+
+    . index - Mostrar uma tabela com os stocks dos usuários e o número de ações
+que cada um tem. O preço atual de cada ação(API) e o valor total do holding de
+cada um.
+Mostrar o balanço atual do usuário (quanto de $$$ ele possui).
+
+    . sell
+
+    . history - mostrar ao usuário um histórico de $$$, compra e venda
+
+    . Personal touch - OAUTH2? permitir ao usuário trocar a senha.
+
+
+
+
+_________________________________________________________________________
+
+                                                'logged as vini@mail.com'
+                                                                <logout>
+
+    stocks  | qty | current price | holding |
+    AAPL       2        U$109,64    2 * 109
+    TSLA       3        U$611,22      ...
+    UBER       4        U$48,90       ...
+
+    total holding. . . . . . . . . U$3.200,00
+    total cash . . . . . . . . . . U$6.950,00
+
+                  Current yields. U%10.150,00
+
+
+                              total trades: 9
+                last trade: dezember, 20 2020
+                                   __________
+
+table > userstatus
+
+    status_id| company   | stocks | id |
+        1       AAPL          2      1
+        2       TSLA          3      1
+        3       UBER          4      1
+        
+        
+        
+
+userInfo = [
+                ['aapl', 'Apple Inc', 13],
+                ['uber', 'Uber Technologies Inc', 2],
+                ['tsla', 'Tesla Inc', 2]
+    ]
+           
+           
+quoted = [
+            ['Apple Inc', 136.69, 'AAPL'],
+            ['Uber Technologies Inc', 51.97, 'UBER'],
+            ['Tesla Inc', 663.69, 'TSLA']
+    ]
+    
+    
+SELECT symbol, quantity, price, day, hour,
+CASE WHEN tradeState = 'SELL' THEN price * (-1) END category FROM usertrade                   
+WHERE id = 1 AND price=price;
+
+
+userInfo = [                        <class 'list'>
+                ['uber', 'Uber Technologies Inc', 9, 53.17, 478.53000000000003],
+                ['aapl', 'Apple Inc', 15, 133.78, 2006.7],
+                ['googl', 'Alphabet Inc - Class A', 1, 1731.67, 1731.67]
+]
+    
+    

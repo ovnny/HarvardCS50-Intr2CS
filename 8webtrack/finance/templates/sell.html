@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}Sell{% endblock %}
+
+{% block main %}
+
+
+
+<form action="/sell" method="post">
+    <div class="form-group">
+        <select class="form-control" name="userShares">
+            <option disabled selected value="shares">Shares</option>
+            {% for share in userShares %}
+                <option value="{{ share['symbl'] }}">{{ share['symbl'] }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <input class="form-control" autocomplete="off" autofocus min="0" name="quantity" placeholder="Quantity" type="number">
+    </div>
+    <button class="btn btn-primary" type="submit">Sell</button>
+</form>
+
+
+{% endblock %}

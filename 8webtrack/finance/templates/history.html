@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}History{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+    <thead>
+        <tr>
+            <th>State</th>
+            <th>Symbol</th>
+            <th>Qty</th>
+            <th>Price</th>
+            <th>Day</th>
+            <th>Hour</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for t in historyTrade %}
+        <tr>
+            <td>{{ t['tradeState'] }}</td>
+            <td>{{ t['symbol'] }}</td>
+            <td>{{ t['quantity'] }}</td>
+            <td>{{ t['price'] }}</td>
+            <td>{{ t['day'] }}</td>
+            <td>{{ t['hour'] }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+{% endblock %}
